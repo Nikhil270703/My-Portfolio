@@ -173,7 +173,7 @@ function staticBody() {
     return l.length ? `<p>${l.join(' · ')}</p>` : ''
   }
   return `
-      <main style="max-width:760px;margin:0 auto;padding:48px 20px;font-family:system-ui,sans-serif;line-height:1.6">
+      <main id="seo-static" style="max-width:760px;margin:0 auto;padding:48px 20px;font-family:system-ui,sans-serif;line-height:1.6">
         <header>
           ${profile.photo ? `<img src="./${profile.photo}" alt="${esc(profile.name)}, AI/ML engineer and full-stack developer from Pune" width="160" height="160" style="border-radius:16px" />` : ''}
           <h1>Nikhil Raghuwanshi</h1>

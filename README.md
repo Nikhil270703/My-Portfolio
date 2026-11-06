@@ -77,7 +77,7 @@ My-Portfolio/
 
 ## SEO
 
-`seo.config.js` runs at build time and writes into `index.html`: the page title and description, Open Graph/Twitter preview tags, `Person` + `WebSite` structured data (JSON-LD), and a plain-HTML text version of the whole page for search engines. `public/` also has `robots.txt`, `sitemap.xml`, `og-image.png` and app icons. Content comes from `src/data/portfolio.js`, so SEO updates itself when you edit that file.
+`seo.config.js` runs at build time and writes into `index.html`: the page title and description, canonical and hreflang tags, Open Graph/Twitter preview tags, `Person` + `WebSite` + `ProfilePage` + project `ItemList` structured data (JSON-LD), and a plain-HTML text version of the whole page for search engines. It also generates `sitemap.xml` with today's date and image entries. `public/` has `robots.txt`, `og-image.png` and app icons. Content comes from `src/data/portfolio.js`, so SEO updates itself when you edit that file.
 
 ## Run locally
 

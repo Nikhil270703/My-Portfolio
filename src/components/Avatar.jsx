@@ -14,7 +14,7 @@ export default function Avatar({ src, alt = profile.name, className = '', large 
         height={size}
         loading={large ? 'lazy' : 'eager'}
         decoding="async"
-        className={`object-cover object-top ${className}`}
+        className={`object-cover ${large ? 'object-top' : 'object-center'} ${className}`}
       />
     )
   }

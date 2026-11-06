@@ -59,6 +59,7 @@ export default function Contact() {
             {[
               [profile.github, SiGithub, 'GitHub', profile.github.replace('https://', '')],
               [profile.linkedin, SiLinkedin, 'LinkedIn', profile.linkedinLabel],
+              ...(profile.company ? [[profile.company.url, (p) => <Icon name="rocket" {...p} />, 'My start-up', profile.company.name]] : []),
             ].map(([href, I, label, text], i) => (
               <Reveal key={label} delay={0.08 * (i + 1)}>
                 <a href={href} target="_blank" rel="noreferrer"

@@ -38,7 +38,11 @@ export default function Experience() {
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <h3 className="text-xl font-semibold">{e.role}</h3>
-                      <p className="mt-0.5 text-zinc-500">{e.org}</p>
+                      <p className="mt-0.5 text-zinc-500">
+                        {e.link ? (
+                          <a href={e.link} target="_blank" rel="noreferrer" className="underline decoration-zinc-300 underline-offset-4 transition hover:text-accent hover:decoration-current dark:decoration-zinc-700">{e.org} ↗</a>
+                        ) : e.org}
+                      </p>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="rounded-full border border-zinc-200 px-3 py-1 font-mono text-xs text-zinc-500 dark:border-zinc-700">{e.period}</span>

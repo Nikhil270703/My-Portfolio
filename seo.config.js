@@ -20,13 +20,13 @@ const OG_IMAGE = abs('og-image.png')
 const title = 'Nikhil Raghuwanshi | AI/ML & Full-Stack Developer, Pune'
 // ~155 characters: fits in Google's snippet
 const description =
-  'Nikhil Raghuwanshi, AI/ML engineer and full-stack developer in Pune. Legal AI with InLegalBERT (85.2%), Tammewar Pharmacy, AuraEdu and 19 certifications.'
+  'Nikhil Raghuwanshi: AI/ML engineer, full-stack developer and founder of Nexvhira, Pune. Legal AI (InLegalBERT), Tammewar Pharmacy, AuraEdu and Flour Mill apps.'
 
 const keywords = [
   'Nikhil Raghuwanshi', 'Nikhil Raghuvanshi', 'Nikhil Gokul Raghuwanshi', 'Nikhil270703',
   'Nikhil Raghuwanshi portfolio', 'AI ML engineer Pune', 'full-stack developer Pune',
   'Nutan College of Engineering and Research', 'InLegalBERT', 'legal AI', 'Tammewar Pharmacy',
-  'AuraEdu', 'Next.js developer', 'React developer', 'machine learning', 'fresher 2026',
+  'AuraEdu', 'Nexvhira', 'Nexvhira founder', 'Flour Mill app', 'Next.js developer', 'React developer', 'machine learning', 'fresher 2026',
 ].join(', ')
 
 function jsonLd() {
@@ -41,7 +41,8 @@ function jsonLd() {
     url: SITE_URL,
     image: { '@type': 'ImageObject', url: PHOTO, width: 800, height: 800, caption: profile.name },
     email: `mailto:${profile.email}`,
-    jobTitle: 'AI/ML Engineer & Full-Stack Developer',
+    jobTitle: ['AI/ML Engineer & Full-Stack Developer', 'Founder, Nexvhira'],
+    ...(profile.company ? { worksFor: { '@type': 'Organization', name: profile.company.name, url: profile.company.url, founder: { '@id': `${SITE_URL}#person` }, address: { '@type': 'PostalAddress', addressLocality: 'Pune', addressCountry: 'IN' } } } : {}),
     description,
     address: { '@type': 'PostalAddress', addressLocality: 'Pune', addressRegion: 'Maharashtra', addressCountry: 'IN' },
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'Nutan College of Engineering and Research, Pune' },
@@ -60,7 +61,7 @@ function jsonLd() {
       ...(c.verify ? { url: c.verify } : {}),
     })),
     knowsAbout: [...new Set(skills.flatMap((g) => g.items.map((i) => i.name)))],
-    sameAs: [profile.github, profile.linkedin, ...profile.coding.map((c) => c.href)],
+    sameAs: [profile.github, profile.linkedin, ...profile.coding.map((c) => c.href), ...(profile.company ? [profile.company.url] : [])],
   }
 
   const site = {
@@ -176,7 +177,7 @@ function staticBody() {
         <header>
           ${profile.photo ? `<img src="./${profile.photo}" alt="${esc(profile.name)}, AI/ML engineer and full-stack developer from Pune" width="160" height="160" style="border-radius:16px" />` : ''}
           <h1>Nikhil Raghuwanshi</h1>
-          <p><strong>AI/ML Engineer &amp; Full-Stack Developer</strong> · Pune, India · B.Tech Computer Science &amp; Engineering (AI), Nutan College of Engineering and Research</p>
+          <p><strong>AI/ML Engineer &amp; Full-Stack Developer</strong> · Founder of <a href="${profile.company.url}">Nexvhira</a> · Pune, India · B.Tech Computer Science &amp; Engineering (AI), Nutan College of Engineering and Research</p>
           <p>${esc(profile.tagline)}</p>
           <p><a href="${profile.github}" rel="me">GitHub</a> · <a href="${profile.linkedin}" rel="me">LinkedIn</a> · <a href="mailto:${profile.email}">${esc(profile.email)}</a></p>
         </header>
@@ -185,7 +186,7 @@ function staticBody() {
           ${projects.map((p) => `<article><h3>${esc(p.title)}: ${esc(p.subtitle)}</h3><p>${esc(p.summary)}</p><ul>${li(p.metrics.map((m) => `${esc(m.value)} ${esc(m.label)}`))}</ul><p>Tech: ${esc(p.stack.join(', '))}</p>${links(p)}</article>`).join('')}
         </section>
         <section id="experience-static"><h2>Experience</h2>
-          ${experience.map((e) => `<article><h3>${esc(e.role)}, ${esc(e.org)}</h3><p>${esc(e.period)}</p><ul>${li(e.points.map(esc))}</ul></article>`).join('')}
+          ${experience.map((e) => `<article><h3>${esc(e.role)}, ${e.link ? `<a href="${e.link}">${esc(e.org)}</a>` : esc(e.org)}</h3><p>${esc(e.period)}</p><ul>${li(e.points.map(esc))}</ul></article>`).join('')}
         </section>
         <section id="skills-static"><h2>Skills</h2><ul>${li(skills.map((g) => `${esc(g.group)}: ${esc(g.items.map((i) => i.name).join(', '))}`))}</ul></section>
         <section id="education-static"><h2>Education</h2><ul>${li(education.map((e) => `${esc(e.title)}, ${esc(e.place)}, ${esc(e.period)} (${esc(e.score)})`))}</ul></section>

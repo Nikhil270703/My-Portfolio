@@ -12,6 +12,7 @@ export const profile = {
     'I build AI and full-stack products for real users: from predicting Indian court outcomes with InLegalBERT to the billing and stock system behind Tammewar Pharmacy and the AuraEdu institution suite.',
   location: 'Pune, Maharashtra, India',
   status: 'Open to AI/ML & software roles · 2026 graduate',
+  company: { name: 'Nexvhira', url: 'https://nexvhira.vercel.app/' },
   email: 'nraghuvanshi100@gmail.com',
   github: 'https://github.com/Nikhil270703',
   linkedin: 'https://www.linkedin.com/in/nikhil-raghuvanshi-8a7704259/',
@@ -30,7 +31,7 @@ export const profile = {
 export const about = {
   paragraphs: [
     "I'm a final-year B.Tech Computer Science & Engineering (Artificial Intelligence) student at Nutan College of Engineering and Research, Pune. I like problems where AI or software meets a real person: a lawyer working through a long judgment, a pharmacy tracking stock and dues, an institute running admissions and exams.",
-    'I started with Java, building a desktop clinic system during my internship at MRND Lab, then moved into machine learning (the 300-hour freeCodeCamp ML certification and NPTEL from IIT Madras) and NLP. Today I work across the stack, from fine-tuning transformers in Python to shipping Next.js and Express apps with secure auth and MongoDB. Off the keyboard, I anchor college events and enjoy public speaking.',
+    'I started with Java, building a desktop clinic system during my internship at MRND Lab, then moved into machine learning (the 300-hour freeCodeCamp ML certification and NPTEL from IIT Madras) and NLP. Today I work across the stack, from fine-tuning transformers in Python to shipping Next.js and Express apps with secure auth and MongoDB, and I run Nexvhira, my software studio for small businesses. Off the keyboard, I anchor college events and enjoy public speaking.',
   ],
   highlights: [
     { value: 6, decimals: 0, suffix: '', label: 'Projects shipped or in progress' },
@@ -77,19 +78,19 @@ export const projects = [
     id: 'pharmacy',
     title: 'Tammewar Pharmacy',
     subtitle: 'Stock, billing & delivery system',
-    category: 'Full-Stack · Business app',
+    category: 'Full-Stack · Client project',
     status: 'Live',
     icon: 'pill',
     accent: 'from-sky-500/20 to-indigo-500/10',
     summary:
-      'A complete back office for Tammewar Pharmacy: medicine stock, supplier purchases, bills, customer dues, home deliveries and WhatsApp reminders, with separate portals for staff, delivery drivers and customers.',
+      'A pharmacy distribution ERP built through Nexvhira for Naresh Enterprises (Tammewar Pharmacy): medicine stock, supplier purchases, bills, customer dues, home deliveries and WhatsApp reminders, with separate portals for staff, delivery drivers and customers.',
     metrics: [
       { value: '14', label: 'modules' },
       { value: '4', label: 'user portals' },
       { value: 'Live', label: 'deployed' },
     ],
     problem:
-      'A local pharmacy was tracking medicine stock, supplier purchases, credit bills and home deliveries across registers, so dues were missed and nobody knew what was in stock.',
+      'A pharmacy distributor was tracking medicine stock, supplier purchases, credit bills and deliveries across registers, so dues were missed and nobody knew what was in stock.',
     approach: [
       'One admin panel for products and stock, purchases, vendors and quotations.',
       'Billing with downloadable PDF invoices, outstanding-dues tracking per customer, and one-tap WhatsApp invoices and payment reminders in English and मराठी.',
@@ -148,7 +149,7 @@ export const projects = [
     title: 'Flour Mill Manager',
     subtitle: 'Bilingual orders & dues app',
     category: 'Full-Stack · PWA',
-    status: 'In progress',
+    status: 'Live',
     icon: 'factory',
     accent: 'from-emerald-500/20 to-teal-500/10',
     summary:
@@ -156,7 +157,7 @@ export const projects = [
     metrics: [
       { value: '2', label: 'languages' },
       { value: 'PWA', label: 'installable' },
-      { value: 'v0.12', label: 'current release' },
+      { value: 'Live', label: 'on Vercel' },
     ],
     problem:
       'A local flour mill tracked grain bags, grinding status and customer credit on paper, so nobody knew what was ready or who owed how much.',
@@ -173,7 +174,10 @@ export const projects = [
     ],
     pipeline: ['Order intake', 'Queue', 'Payments', 'Dues', 'Customer portal'],
     stack: ['Next.js 16', 'React 19', 'TypeScript', 'MongoDB', 'Mongoose', 'Zod', 'Tailwind CSS'],
-    links: { github: 'https://github.com/Nikhil270703/Feed-Mill-Management-System' },
+    links: {
+      github: 'https://github.com/Nikhil270703/Feed-Mill-Management-System',
+      live: 'https://feed-mill-management-system.vercel.app/',
+    },
   },
   {
     id: 'ml',
@@ -233,6 +237,20 @@ export const projects = [
 ]
 
 export const experience = [
+  {
+    role: 'Founder',
+    org: 'Nexvhira, software studio, Pune',
+    link: 'https://nexvhira.vercel.app/',
+    period: 'Present',
+    type: 'Start-up',
+    icon: 'rocket',
+    points: [
+      'Started Nexvhira to build software for small and growing businesses in English and मराठी: billing, stock, orders, payments, customer portals, dashboards and AI tools.',
+      'Shipped three live products: a pharmacy distribution ERP for Naresh Enterprises (Tammewar Pharmacy), the Flour Mill order-and-dues app, and the AuraEdu institution suite.',
+      'Runs the full client process: requirement calls, written quotes, short build rounds with working screens, then launch and support.',
+    ],
+    tools: ['Next.js', 'React', 'Node.js', 'MongoDB', 'Client delivery'],
+  },
   {
     role: 'Java Application Developer Intern',
     org: 'MRND Lab Pvt. Ltd.',

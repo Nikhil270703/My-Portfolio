@@ -15,6 +15,7 @@ export const starterChips = [
   'What are his skills?',
   'Show me his projects',
   'Legal AI project',
+  'Nexvhira',
   'How can I contact him?',
 ]
 
@@ -31,7 +32,7 @@ const intents = [
     id: 'about',
     keywords: ['who', 'about', 'yourself', 'introduce', 'introduction', 'nikhil', 'himself', 'summary', 'background'],
     reply: () => ({
-      text: `Nikhil Raghuwanshi is a final-year B.Tech Computer Science & Engineering (Artificial Intelligence) student at Nutan College of Engineering and Research, Pune (2022–2026).\n\nHe builds AI and full-stack products: a legal-judgment predictor with InLegalBERT, the live Tammewar Pharmacy system, the AuraEdu institution suite and a bilingual flour-mill app. He interned as a Java developer at MRND Lab and is looking for AI/ML and software roles.`,
+      text: `Nikhil Raghuwanshi is a final-year B.Tech Computer Science & Engineering (Artificial Intelligence) student at Nutan College of Engineering and Research, Pune (2022–2026).\n\nHe builds AI and full-stack products: a legal-judgment predictor with InLegalBERT, the live Tammewar Pharmacy system, the AuraEdu institution suite and a bilingual flour-mill app. He founded Nexvhira, a software studio for small businesses, interned as a Java developer at MRND Lab, and is looking for AI/ML and software roles.`,
       chips: ['What are his skills?', 'Show me his projects', 'Is he available?'],
     }),
   },
@@ -67,7 +68,10 @@ const intents = [
     keywords: ['flour', 'mill', 'feed', 'grain', 'udhari', 'dues', 'marathi', 'bilingual', 'pwa', 'upi'],
     reply: () => ({
       text: `Flour Mill Manager is a मराठी / English app for a small flour mill. The owner records grain orders, moves them through a queue, takes cash or UPI payments and tracks who owes what. Customers log in with a PIN on their phone to see their dues, pay by UPI QR and track orders.\n\nIt's built with Next.js 16, TypeScript and MongoDB, with Argon2id hashing, CSRF protection, rate limits, an audit log and optional 2FA.`,
-      links: [{ label: 'Source code', href: gh('flourmill') }],
+      links: [
+        { label: 'Live app', href: live('flourmill') },
+        { label: 'Source code', href: gh('flourmill') },
+      ],
       chips: ['Tammewar Pharmacy', 'AuraEdu'],
     }),
   },
@@ -75,7 +79,7 @@ const intents = [
     id: 'pharmacy',
     keywords: ['pharmacy', 'tammewar', 'medical', 'medicine', 'stock', 'inventory', 'billing', 'bill', 'delivery', 'razorpay', 'whatsapp', 'erp'],
     reply: () => ({
-      text: `Tammewar Pharmacy is a live back-office system for a pharmacy: medicine stock, supplier purchases, PDF bills, customer dues, home deliveries and WhatsApp payment reminders in English and Marathi. It has 14 modules and separate portals for admin, staff, delivery drivers and customers.\n\nIt's React + Vite on Cloudflare Pages with an Express + MongoDB API, JWT auth and scheduled backups.`,
+      text: `Tammewar Pharmacy is a live pharmacy distribution ERP Nikhil built through his start-up Nexvhira for Naresh Enterprises: medicine stock, supplier purchases, PDF bills, customer dues, home deliveries and WhatsApp payment reminders in English and Marathi. It has 14 modules and separate portals for admin, staff, delivery drivers and customers.\n\nIt's React + Vite on Cloudflare Pages with an Express + MongoDB API, JWT auth and scheduled backups.`,
       links: [
         { label: 'Live site', href: live('pharmacy') },
         { label: 'Source code', href: gh('pharmacy') },
@@ -93,6 +97,15 @@ const intents = [
         { label: 'Source code', href: gh('auraedu') },
       ],
       chips: ['Tammewar Pharmacy', 'Legal AI project'],
+    }),
+  },
+  {
+    id: 'nexvhira',
+    keywords: ['nexvhira', 'startup', 'start-up', 'company', 'founder', 'business', 'freelance', 'client', 'clients', 'agency', 'studio', 'hire for project'],
+    reply: () => ({
+      text: `Nikhil is the founder of Nexvhira, a Pune software studio that builds software for small and growing businesses in English and Marathi: billing, stock, orders, payments, websites, dashboards and AI tools.\n\nIts live products include the pharmacy distribution ERP for Naresh Enterprises (Tammewar Pharmacy), the Flour Mill app and AuraEdu.`,
+      links: [{ label: 'Visit Nexvhira', href: profile.company.url }],
+      chips: ['Tammewar Pharmacy', 'Flour Mill app', 'AuraEdu'],
     }),
   },
   {
@@ -221,6 +234,7 @@ const intents = [
 const chipMap = {
   'Legal AI project': 'legal',
   'Flour Mill app': 'flourmill',
+  Nexvhira: 'nexvhira',
   'Tammewar Pharmacy': 'pharmacy',
   AuraEdu: 'auraedu',
   Leadership: 'leadership',

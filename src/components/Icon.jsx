@@ -8,7 +8,7 @@ import {
 import {
   LuBrainCircuit, LuBarChartBig, LuScale, LuShieldCheck, LuSparkles, LuDatabase,
   LuGraduationCap, LuBookOpen, LuAward, LuBriefcase, LuCode2, LuCpu, LuWifi, LuNetwork, LuWorkflow, LuFactory, LuWrench, LuCloud,
-  LuLayers, LuMic, LuTrophy, LuBot, LuBoxes, LuPill,
+  LuLayers, LuMic, LuTrophy, LuBot, LuBoxes, LuPill, LuRocket,
 } from 'react-icons/lu'
 
 const map = {
@@ -26,7 +26,7 @@ const map = {
   opencv: SiOpencv, react: SiReact, nextjs: SiNextdotjs, node: SiNodedotjs, express: SiExpress,
   tailwind: SiTailwindcss, mongodb: SiMongodb, mysql: SiMysql, ibm: SiIbm, vercel: SiVercel,
   codechef: SiCodechef, leetcode: SiLeetcode, freecodecamp: SiFreecodecamp, codingninjas: SiCodingninjas,
-  layers: LuLayers, mic: LuMic, trophy: LuTrophy, bot: LuBot, blocks: LuBoxes, pill: LuPill,
+  layers: LuLayers, mic: LuMic, trophy: LuTrophy, bot: LuBot, blocks: LuBoxes, pill: LuPill, rocket: LuRocket,
   code: LuCode2, chip: LuCpu, iot: LuWifi, network: LuNetwork, workflow: LuWorkflow,
 }
 

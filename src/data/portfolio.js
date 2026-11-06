@@ -9,7 +9,7 @@ export const profile = {
   initials: 'NR',
   roles: ['AI/ML Engineer', 'Full-Stack Developer', 'LegalTech Builder'],
   tagline:
-    'I build AI and full-stack products for real users: from predicting Indian court outcomes with InLegalBERT to a bilingual order-and-dues app for a local flour mill.',
+    'I build AI and full-stack products for real users: from predicting Indian court outcomes with InLegalBERT to the billing and stock system behind Tammewar Pharmacy and the AuraEdu institution suite.',
   location: 'Pune, Maharashtra, India',
   status: 'Open to AI/ML & software roles · 2026 graduate',
   email: 'nraghuvanshi100@gmail.com',
@@ -22,14 +22,14 @@ export const profile = {
     { label: 'HackerRank', handle: 'nraghuvanshi100', href: 'https://www.hackerrank.com/profile/nraghuvanshi100', icon: 'hackerrank' },
     { label: 'CodeChef', handle: 'nick_1011', href: 'https://www.codechef.com/users/nick_1011', icon: 'codechef' },
   ],
-  photo: '', // e.g. 'nikhil-raghuwanshi.jpg' in public/. Empty = animated "NR" monogram
-  photoSmall: '', // e.g. 'nikhil-raghuwanshi-sm.jpg' (about 96×96)
+  photo: 'nikhil-raghuwanshi.jpg', // in public/. Empty = animated "nr" monogram
+  photoSmall: 'nikhil-raghuwanshi-sm.jpg', // ~192×192
   resume: '', // paste a public link to the resume PDF to show a "Resume" button
 }
 
 export const about = {
   paragraphs: [
-    "I'm a final-year B.Tech Computer Science & Engineering (Artificial Intelligence) student at Nutan College of Engineering and Research, Pune. I like problems where AI or software meets a real person: a lawyer working through a long judgment, a mill owner tracking who owes what, an institute running admissions and exams.",
+    "I'm a final-year B.Tech Computer Science & Engineering (Artificial Intelligence) student at Nutan College of Engineering and Research, Pune. I like problems where AI or software meets a real person: a lawyer working through a long judgment, a pharmacy tracking stock and dues, an institute running admissions and exams.",
     'I started with Java, building a desktop clinic system during my internship at MRND Lab, then moved into machine learning (the 300-hour freeCodeCamp ML certification and NPTEL from IIT Madras) and NLP. Today I work across the stack, from fine-tuning transformers in Python to shipping Next.js and Express apps with secure auth and MongoDB. Off the keyboard, I anchor college events and enjoy public speaking.',
   ],
   highlights: [
@@ -74,6 +74,76 @@ export const projects = [
     links: { github: 'https://github.com/Nikhil270703/AI-For-legal-case-outcome-prediction' },
   },
   {
+    id: 'pharmacy',
+    title: 'Tammewar Pharmacy',
+    subtitle: 'Stock, billing & delivery system',
+    category: 'Full-Stack · Business app',
+    status: 'Live',
+    icon: 'pill',
+    accent: 'from-sky-500/20 to-indigo-500/10',
+    summary:
+      'A complete back office for Tammewar Pharmacy: medicine stock, supplier purchases, bills, customer dues, home deliveries and WhatsApp reminders, with separate portals for staff, delivery drivers and customers.',
+    metrics: [
+      { value: '14', label: 'modules' },
+      { value: '4', label: 'user portals' },
+      { value: 'Live', label: 'deployed' },
+    ],
+    problem:
+      'A local pharmacy was tracking medicine stock, supplier purchases, credit bills and home deliveries across registers, so dues were missed and nobody knew what was in stock.',
+    approach: [
+      'One admin panel for products and stock, purchases, vendors and quotations.',
+      'Billing with downloadable PDF invoices, outstanding-dues tracking per customer, and one-tap WhatsApp invoices and payment reminders in English and मराठी.',
+      'Online bookings and distributions with delivery-driver and customer portals, plus public order-tracking and feedback links.',
+      'Payments, expenses, employees and reports dashboards, with role-based access for admin, staff, drivers and customers.',
+    ],
+    results: [
+      'Live on Cloudflare Pages, backed by an Express + MongoDB API.',
+      'JWT auth, Zod validation, Helmet and rate limiting; scheduled backups and reminders with node-cron.',
+      'Razorpay payment-link flow (sandbox mode) and an audit log of every action.',
+    ],
+    pipeline: ['Purchase', 'Stock', 'Bill', 'WhatsApp reminder', 'Payment'],
+    stack: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'Razorpay', 'WhatsApp API'],
+    links: {
+      github: 'https://github.com/Nikhil270703/medical_stock_system',
+      live: 'https://tammewar-pharmacy.pages.dev/',
+    },
+  },
+  {
+    id: 'auraedu',
+    title: 'AuraEdu',
+    subtitle: 'Institution management suite',
+    category: 'Full-Stack · SaaS',
+    status: 'Live',
+    icon: 'grad',
+    accent: 'from-violet-500/20 to-fuchsia-500/10',
+    summary:
+      'One platform to run a coaching centre, school or college: admissions, students, staff, attendance, exams, fees, accounts and payroll, with an admin dashboard, a teacher workspace and student and parent portals.',
+    metrics: [
+      { value: '25+', label: 'live demo modules' },
+      { value: '3', label: 'products' },
+      { value: '2', label: 'demo branches' },
+    ],
+    problem:
+      'Institutes juggle admissions, attendance, exams, fees and staff across spreadsheets and separate tools, and want to see a working product before choosing what to pay for.',
+    approach: [
+      'Three products: AuraEdu Academy (22 modules), AuraEdu ERP (47 modules) and AuraEdu HRM (coming soon).',
+      'Students & admissions: online admissions, lead management with automatic conversion to students, and course enrolment with online checkout.',
+      'Academics: courses, batches, timetables, attendance (biometric, manual or QR), assignments, proctored tests and certificate generation.',
+      'Accounts & communication: fees, accounts and payroll; notices by SMS, email and push; an embeddable form builder; multi-branch control from one dashboard.',
+    ],
+    results: [
+      'Live demo with 25+ working modules, 20+ sample students, 6+ staff and two branches.',
+      'A custom quotation builder that prices by product, modules, campuses, student count and hosting type.',
+      'Portals for admins, teachers, students and parents.',
+    ],
+    pipeline: ['Lead', 'Admission', 'Batch & attendance', 'Tests', 'Fees'],
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MongoDB', 'Zod', 'Vercel'],
+    links: {
+      github: 'https://github.com/Nikhil270703/AuraEdu',
+      live: 'https://aura-edu-eight.vercel.app/',
+    },
+  },
+  {
     id: 'flourmill',
     title: 'Flour Mill Manager',
     subtitle: 'Bilingual orders & dues app',
@@ -104,72 +174,6 @@ export const projects = [
     pipeline: ['Order intake', 'Queue', 'Payments', 'Dues', 'Customer portal'],
     stack: ['Next.js 16', 'React 19', 'TypeScript', 'MongoDB', 'Mongoose', 'Zod', 'Tailwind CSS'],
     links: { github: 'https://github.com/Nikhil270703/Feed-Mill-Management-System' },
-  },
-  {
-    id: 'erp',
-    title: 'College ERP & Stock Suite',
-    subtitle: 'Modular ERP, live on Vercel',
-    category: 'Full-Stack · ERP',
-    status: 'Live',
-    icon: 'layers',
-    accent: 'from-sky-500/20 to-indigo-500/10',
-    summary:
-      'A modular ERP covering admissions, faculty, documents, exams, billing and stock, built as an independently deployed micro-frontend with its own Express API.',
-    metrics: [
-      { value: '50', label: 'screens' },
-      { value: '53', label: 'data models' },
-      { value: 'Live', label: 'on Vercel' },
-    ],
-    problem:
-      'Institutes juggle admissions, documents, exams, fees and inventory across spreadsheets and registers that never stay in sync.',
-    approach: [
-      'Student side: admissions, profiles, promotions, attendance, hall tickets, roll calls and certificates.',
-      'Operations side: products, purchases, vendors, quotations, bills, payments, expenses and a financial dashboard.',
-      'Express + MongoDB backend with JWT auth, Zod validation, Helmet and rate limiting; scheduled jobs with node-cron for backups and reminders.',
-      'Loaded into a larger ERP core through Module Federation, so each module builds and deploys on its own.',
-    ],
-    results: [
-      'Generates PDFs and Excel exports, QR codes, and sends WhatsApp notifications.',
-      'Online payments through Razorpay and an audit log of every action.',
-      'Deployed live on Vercel.',
-    ],
-    pipeline: ['React + Vite', 'Module Federation', 'Express API', 'MongoDB'],
-    stack: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB', 'Recharts', 'Razorpay'],
-    links: {
-      github: 'https://github.com/Nikhil270703/medical_stock_system',
-      live: 'https://medical-stock-system.vercel.app',
-    },
-  },
-  {
-    id: 'myedou',
-    title: 'MyEdou',
-    subtitle: 'Institution management platform',
-    category: 'Full-Stack · SaaS',
-    status: 'In progress',
-    icon: 'grad',
-    accent: 'from-violet-500/20 to-fuchsia-500/10',
-    summary:
-      'A coaching-institute platform with an admin dashboard and student portal: admissions, batches, attendance, online tests, finance and notices, with one-click demo logins.',
-    metrics: [
-      { value: '25', label: 'modules' },
-      { value: '2', label: 'portals' },
-      { value: 'RBAC', label: 'admin roles' },
-    ],
-    problem:
-      'Coaching institutes want to see a working product before choosing which modules to pay for, so the demo has to feel real.',
-    approach: [
-      'Working modules on a live database: attendance register, assignments, batches, online admissions and lead-to-student conversion.',
-      'Test management with timed, auto-graded MCQs and manual grading for written answers.',
-      'A 10-tab finance module (payments, invoices, refunds, waivers, expenses, approvals) with an append-only audit trail.',
-      'Notices and calendar, a certificate generator with print-to-PDF, and a multi-branch switcher.',
-    ],
-    results: [
-      'Seeded demo data with one-click "Explore as Admin / Student" logins and a reset button.',
-      'Server-side validation with Zod and session checks in a single data-access layer.',
-    ],
-    pipeline: ['Landing', 'Login', 'Admin dashboard', 'Student portal'],
-    stack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'MongoDB', 'Zod'],
-    links: { github: 'https://github.com/Nikhil270703/CoachingPOC' },
   },
   {
     id: 'ml',

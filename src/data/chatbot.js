@@ -31,7 +31,7 @@ const intents = [
     id: 'about',
     keywords: ['who', 'about', 'yourself', 'introduce', 'introduction', 'nikhil', 'himself', 'summary', 'background'],
     reply: () => ({
-      text: `Nikhil Raghuwanshi is a final-year B.Tech Computer Science & Engineering (Artificial Intelligence) student at Nutan College of Engineering and Research, Pune (2022–2026).\n\nHe builds AI and full-stack products: a legal-judgment predictor with InLegalBERT, a bilingual flour-mill app, a college ERP and an institute-management platform. He interned as a Java developer at MRND Lab and is looking for AI/ML and software roles.`,
+      text: `Nikhil Raghuwanshi is a final-year B.Tech Computer Science & Engineering (Artificial Intelligence) student at Nutan College of Engineering and Research, Pune (2022–2026).\n\nHe builds AI and full-stack products: a legal-judgment predictor with InLegalBERT, the live Tammewar Pharmacy system, the AuraEdu institution suite and a bilingual flour-mill app. He interned as a Java developer at MRND Lab and is looking for AI/ML and software roles.`,
       chips: ['What are his skills?', 'Show me his projects', 'Is he available?'],
     }),
   },
@@ -48,9 +48,9 @@ const intents = [
     id: 'projects',
     keywords: ['project', 'projects', 'built', 'build', 'portfolio', 'made', 'work samples', 'show'],
     reply: () => ({
-      text: `His main projects:\n\n1. AI for Legal Case Outcome Prediction: InLegalBERT, 85.2% accuracy, IPC→BNS translation\n2. Flour Mill Manager: bilingual orders & dues app (Next.js, MongoDB)\n3. College ERP & Stock Suite: 50 screens, live on Vercel\n4. MyEdou: institution-management platform\n5. Machine Learning Projects: CNN, NLP, regression, recommender\n6. Dental Clinic Appointment System: Java Swing + MySQL\n\nAsk about any one for details.`,
+      text: `His main projects:\n\n1. AI for Legal Case Outcome Prediction: InLegalBERT, 85.2% accuracy, IPC→BNS translation\n2. Tammewar Pharmacy: live stock, billing & delivery system\n3. AuraEdu: live institution management suite\n4. Flour Mill Manager: bilingual orders & dues app (Next.js, MongoDB)\n5. Machine Learning Projects: CNN, NLP, regression, recommender\n6. Dental Clinic Appointment System: Java Swing + MySQL\n\nAsk about any one for details.`,
       links: [{ label: 'Open the Projects section', href: '#projects' }],
-      chips: ['Legal AI project', 'Flour Mill app', 'College ERP', 'MyEdou'],
+      chips: ['Legal AI project', 'Tammewar Pharmacy', 'AuraEdu', 'Flour Mill app'],
     }),
   },
   {
@@ -68,28 +68,31 @@ const intents = [
     reply: () => ({
       text: `Flour Mill Manager is a मराठी / English app for a small flour mill. The owner records grain orders, moves them through a queue, takes cash or UPI payments and tracks who owes what. Customers log in with a PIN on their phone to see their dues, pay by UPI QR and track orders.\n\nIt's built with Next.js 16, TypeScript and MongoDB, with Argon2id hashing, CSRF protection, rate limits, an audit log and optional 2FA.`,
       links: [{ label: 'Source code', href: gh('flourmill') }],
-      chips: ['College ERP', 'MyEdou'],
+      chips: ['Tammewar Pharmacy', 'AuraEdu'],
     }),
   },
   {
-    id: 'erp',
-    keywords: ['erp', 'college erp', 'stock', 'medical', 'inventory', 'billing', 'razorpay', 'whatsapp', 'vercel', 'express'],
+    id: 'pharmacy',
+    keywords: ['pharmacy', 'tammewar', 'medical', 'medicine', 'stock', 'inventory', 'billing', 'bill', 'delivery', 'razorpay', 'whatsapp', 'erp'],
     reply: () => ({
-      text: `The College ERP & Stock Suite covers admissions, faculty, documents, hall tickets, bills, purchases, vendors and stock, across about 50 screens and 53 data models.\n\nIt's React + Vite on the front and Express + MongoDB on the back, with JWT auth, Razorpay payments, PDF/Excel exports and WhatsApp notifications. It's live on Vercel.`,
+      text: `Tammewar Pharmacy is a live back-office system for a pharmacy: medicine stock, supplier purchases, PDF bills, customer dues, home deliveries and WhatsApp payment reminders in English and Marathi. It has 14 modules and separate portals for admin, staff, delivery drivers and customers.\n\nIt's React + Vite on Cloudflare Pages with an Express + MongoDB API, JWT auth and scheduled backups.`,
       links: [
-        { label: 'Live demo', href: live('erp') },
-        { label: 'Source code', href: gh('erp') },
+        { label: 'Live site', href: live('pharmacy') },
+        { label: 'Source code', href: gh('pharmacy') },
       ],
-      chips: ['MyEdou', 'Show me his projects'],
+      chips: ['AuraEdu', 'Show me his projects'],
     }),
   },
   {
-    id: 'myedou',
-    keywords: ['myedou', 'coaching', 'institute', 'institution', 'lms', 'attendance', 'admission', 'admissions', 'test', 'mcq'],
+    id: 'auraedu',
+    keywords: ['auraedu', 'aura', 'myedou', 'coaching', 'institute', 'institution', 'school', 'college erp', 'lms', 'attendance', 'admission', 'admissions', 'mcq', 'payroll'],
     reply: () => ({
-      text: `MyEdou is a coaching-institute platform with an admin dashboard and a student portal. Working modules include attendance, assignments, batches, online admissions, lead conversion, timed auto-graded MCQ tests and a 10-tab finance module with an audit trail. It's built with Next.js 16, React 19, TypeScript and MongoDB.`,
-      links: [{ label: 'Source code', href: gh('myedou') }],
-      chips: ['Legal AI project', 'Show me his projects'],
+      text: `AuraEdu is an institution management suite for coaching centres, schools and colleges: admissions, lead conversion, batches, timetables, attendance (biometric, manual or QR), proctored tests, certificates, fees, accounts and payroll.\n\nIt comes as AuraEdu Academy (22 modules) and AuraEdu ERP (47 modules), and the live demo has 25+ working modules across two branches.`,
+      links: [
+        { label: 'Live demo', href: live('auraedu') },
+        { label: 'Source code', href: gh('auraedu') },
+      ],
+      chips: ['Tammewar Pharmacy', 'Legal AI project'],
     }),
   },
   {
@@ -158,7 +161,7 @@ const intents = [
     id: 'whyhire',
     keywords: ['why', 'hire', 'strength', 'strengths', 'best', 'stand out', 'unique', 'fit', 'good candidate'],
     reply: () => ({
-      text: `A few reasons:\n\n• He ships complete products end to end, from a fine-tuned transformer to secure Next.js and Express apps, and one is live on Vercel.\n• He builds for real users, like a bilingual app for a local flour mill.\n• Industry exposure from his Java internship at MRND Lab.\n• Strong communicator: main anchor for a 500+ audience and first place in speech competitions.`,
+      text: `A few reasons:\n\n• He ships complete products end to end, from a fine-tuned transformer to secure Next.js and Express apps, and two of them are live.\n• He builds for real users, like the stock and billing system for Tammewar Pharmacy.\n• Industry exposure from his Java internship at MRND Lab.\n• Strong communicator: main anchor for a 500+ audience and first place in speech competitions.`,
       chips: ['Show me his projects', 'How can I contact him?'],
     }),
   },
@@ -218,8 +221,8 @@ const intents = [
 const chipMap = {
   'Legal AI project': 'legal',
   'Flour Mill app': 'flourmill',
-  'College ERP': 'erp',
-  MyEdou: 'myedou',
+  'Tammewar Pharmacy': 'pharmacy',
+  AuraEdu: 'auraedu',
   Leadership: 'leadership',
   Education: 'education',
   Certifications: 'certifications',

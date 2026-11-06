@@ -5,7 +5,18 @@ import { profile } from '../data/portfolio'
 // animated initials monogram with a slowly rotating gradient ring.
 export default function Avatar({ src, alt = profile.name, className = '', large = false }) {
   if (src) {
-    return <img src={`${import.meta.env.BASE_URL}${src}`} alt={alt} className={`object-cover ${className}`} />
+    const size = large ? 800 : 192
+    return (
+      <img
+        src={`${import.meta.env.BASE_URL}${src}`}
+        alt={alt}
+        width={size}
+        height={size}
+        loading={large ? 'lazy' : 'eager'}
+        decoding="async"
+        className={`object-cover object-top ${className}`}
+      />
+    )
   }
   return (
     <span role="img" aria-label={alt} className={`relative grid place-items-center overflow-hidden bg-zinc-950 ${className}`}>

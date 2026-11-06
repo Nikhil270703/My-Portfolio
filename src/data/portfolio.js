@@ -15,7 +15,7 @@ export const profile = {
   company: { name: 'Nexvhira', url: 'https://nexvhira.vercel.app/' },
   email: 'nraghuvanshi100@gmail.com',
   github: 'https://github.com/Nikhil270703',
-  linkedin: 'https://www.linkedin.com/in/nikhil-raghuvanshi-8a7704259/',
+  linkedin: 'https://www.linkedin.com/in/nikhil-raghuwanshi-8a7704259/',
   linkedinLabel: 'Nikhil Raghuwanshi',
   // Coding profiles shown in the Contact section
   coding: [

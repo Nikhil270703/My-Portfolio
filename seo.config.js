@@ -6,7 +6,7 @@
 // ─────────────────────────────────────────────────────────────
 import { profile, about, projects, experience, education, certifications, skills } from './src/data/portfolio.js'
 
-export const SITE_URL = 'https://nikhilraghuwanshi.me/'
+export const SITE_URL = 'https://nikhilraghuwanshi.live/'
 
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 

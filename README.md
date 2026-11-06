@@ -2,7 +2,7 @@
 
 Personal portfolio of **Nikhil Raghuwanshi**, a B.Tech Computer Science & Engineering (Artificial Intelligence) student at Nutan College of Engineering and Research, Pune, building AI/ML and full-stack projects.
 
-🔗 **Live:** https://nikhilraghuwanshi.me
+🔗 **Live:** https://nikhilraghuwanshi.live
 
 ![Preview](public/og-image.png)
 
@@ -93,15 +93,16 @@ npm run build     # production build in dist/
 2. In the repo, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions** (one-time setup).
 3. The workflow builds and publishes the site automatically on every push.
 
-### Custom domain (nikhilraghuwanshi.me)
+### Custom domain (nikhilraghuwanshi.live)
 
-The domain comes free for a year with the GitHub Student Developer Pack (Namecheap `.me` offer at [nc.me](https://nc.me)).
+Registered free for one year at Name.com through the GitHub Student Developer Pack.
 
-1. In Namecheap → **Domain List → Manage → Advanced DNS**, add:
-   - four **A** records for host `@`: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - one **CNAME** record for host `www` → `nikhil270703.github.io.`
-2. In the repo → **Settings → Pages → Custom domain**, enter `nikhilraghuwanshi.me` and save (`public/CNAME` already contains it).
+1. In Name.com → **My Domains → nikhilraghuwanshi.live → Manage DNS Records**, delete any default/parking records, then add:
+   - four **A** records with an empty host: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - one **CNAME** record with host `www` → `nikhil270703.github.io`
+2. In the repo → **Settings → Pages → Custom domain**, enter `nikhilraghuwanshi.live` and save.
 3. Once the DNS check passes (minutes to a few hours), tick **Enforce HTTPS**.
+4. The free year ends Nov 2027: turn off auto-renew in Name.com if you don't want to be charged.
 
 ## Updating content
 

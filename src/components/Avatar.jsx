@@ -5,17 +5,24 @@ import { profile } from '../data/portfolio'
 // animated initials monogram with a slowly rotating gradient ring.
 export default function Avatar({ src, alt = profile.name, className = '', large = false }) {
   if (src) {
+    const base = import.meta.env.BASE_URL
+    const stem = src.replace(/\.(jpe?g|png)$/i, '')
     const size = large ? 800 : 192
+    // WebP for modern browsers (about 60% smaller), JPG as the fallback
+    const webp = large ? `${base}${stem}-480.webp 480w, ${base}${stem}.webp 800w` : `${base}${stem}.webp`
     return (
-      <img
-        src={`${import.meta.env.BASE_URL}${src}`}
-        alt={alt}
-        width={size}
-        height={size}
-        loading={large ? 'lazy' : 'eager'}
-        decoding="async"
-        className={`object-cover ${large ? 'object-top' : 'object-center'} ${className}`}
-      />
+      <picture>
+        <source type="image/webp" srcSet={webp} sizes={large ? '(min-width: 768px) 420px, 90vw' : undefined} />
+        <img
+          src={`${base}${src}`}
+          alt={alt}
+          width={size}
+          height={size}
+          loading={large ? 'lazy' : 'eager'}
+          decoding="async"
+          className={`object-cover ${large ? 'object-top' : 'object-center'} ${className}`}
+        />
+      </picture>
     )
   }
   return (

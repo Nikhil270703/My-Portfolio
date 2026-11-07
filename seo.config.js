@@ -159,7 +159,7 @@ function headTags() {
 
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
-    ${profile.photoSmall ? `<link rel="preload" as="image" href="./${profile.photoSmall}" fetchpriority="high" />` : ''}
+    ${profile.photoSmall ? `<link rel="preload" as="image" type="image/webp" href="./${profile.photoSmall.replace(/\.jpe?g$/, '.webp')}" fetchpriority="high" />` : ''}
     ${jsonLd()}`
 }
 

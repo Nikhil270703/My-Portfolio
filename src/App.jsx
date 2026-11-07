@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Loader from './components/Loader'
 import ScrollProgress from './components/ScrollProgress'
@@ -14,16 +14,24 @@ import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
-import ChatBot from './components/ChatBot'
+// Loaded after the page: it isn't needed for the first paint
+const ChatBot = lazy(() => import('./components/ChatBot'))
 import { ToastProvider } from './components/Toast'
 
 export default function App() {
-  const [loading, setLoading] = useState(true)
+  // The intro plays once per visit; later page loads in the same tab skip it
+  const [loading, setLoading] = useState(() => {
+    try { return !sessionStorage.getItem('introSeen') } catch { return true }
+  })
+  const finishIntro = () => {
+    try { sessionStorage.setItem('introSeen', '1') } catch { /* storage unavailable */ }
+    setLoading(false)
+  }
 
   return (
     <ToastProvider>
       <AnimatePresence mode="wait">
-        {loading && <Loader key="loader" onDone={() => setLoading(false)} />}
+        {loading && <Loader key="loader" onDone={finishIntro} />}
       </AnimatePresence>
       <ScrollProgress />
       <CursorGlow />
@@ -40,7 +48,9 @@ export default function App() {
       </main>
       <Footer />
       <BackToTop />
-      <ChatBot />
+      <Suspense fallback={null}>
+        <ChatBot />
+      </Suspense>
     </ToastProvider>
   )
 }

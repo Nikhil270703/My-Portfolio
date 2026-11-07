@@ -4,7 +4,7 @@ import { LuX, LuExternalLink, LuBadgeCheck, LuShieldCheck } from 'react-icons/lu
 import { profile } from '../data/portfolio'
 
 export const certUrl = (file) => `${import.meta.env.BASE_URL}certificates/${file}.pdf`
-export const certImg = (file) => `${import.meta.env.BASE_URL}certificates/img/${file}.jpg`
+export const certImg = (file) => `${import.meta.env.BASE_URL}certificates/img/${file}.webp`
 
 export default function CertificateModal({ cert: c, onClose }) {
   const closeRef = useRef(null)

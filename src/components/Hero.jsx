@@ -11,6 +11,9 @@ const ease = [0.22, 1, 0.36, 1]
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } } }
 const word = { hidden: { y: '110%' }, show: { y: 0, transition: { duration: 0.9, ease } } }
 const fade = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.8, ease } } }
+// The intro paragraph is the page's largest text block: starting it at a tiny (not zero)
+// opacity lets the browser count it as painted straight away, which speeds up LCP.
+const fadeLcp = { hidden: { opacity: 0.01, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.8, ease } } }
 
 const rows = [
   ['name', `"${profile.name}"`, 's'],
@@ -59,7 +62,7 @@ export default function Hero({ ready }) {
             </span>
           </h1>
 
-          <motion.p variants={fade} className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+          <motion.p variants={fadeLcp} className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
             {profile.tagline}
           </motion.p>
 

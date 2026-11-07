@@ -1,13 +1,14 @@
-import { useMemo, useState } from 'react'
+import { lazy, Suspense, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LuEye, LuChevronDown, LuBadgeCheck, LuAward, LuShieldCheck } from 'react-icons/lu'
 import SectionHeading from './SectionHeading'
 import Reveal from './Reveal'
 import TiltCard from './TiltCard'
 import Icon from './Icon'
-import CertificateModal from './CertificateModal'
 import Counter from './Counter'
 import { certifications, certificationCategories } from '../data/portfolio'
+
+const CertificateModal = lazy(() => import('./CertificateModal'))
 
 const INITIAL = 9
 
@@ -112,7 +113,11 @@ export default function Certifications() {
         </div>
       </div>
 
-      <AnimatePresence>{preview && <CertificateModal cert={preview} onClose={() => setPreview(null)} />}</AnimatePresence>
+      <AnimatePresence>{preview && (
+          <Suspense fallback={null}>
+            <CertificateModal cert={preview} onClose={() => setPreview(null)} />
+          </Suspense>
+        )}</AnimatePresence>
     </section>
   )
 }

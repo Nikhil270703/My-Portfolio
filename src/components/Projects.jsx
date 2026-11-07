@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LuArrowUpRight, LuMousePointerClick, LuUsers } from 'react-icons/lu'
 import { SiGithub } from 'react-icons/si'
 import SectionHeading from './SectionHeading'
 import TiltCard from './TiltCard'
 import Icon from './Icon'
-import ProjectModal from './ProjectModal'
 import { projects } from '../data/portfolio'
+
+const ProjectModal = lazy(() => import('./ProjectModal'))
 
 const filters = {
   All: () => true,
@@ -62,7 +63,11 @@ export default function Projects() {
       </div>
 
       <AnimatePresence>
-        {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
+        {selected && (
+          <Suspense fallback={null}>
+            <ProjectModal project={selected} onClose={() => setSelected(null)} />
+          </Suspense>
+        )}
       </AnimatePresence>
     </section>
   )

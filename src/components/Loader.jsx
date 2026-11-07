@@ -5,7 +5,7 @@ import { profile } from '../data/portfolio'
 // Short intro screen: initials draw in, then the panel slides up to reveal the page.
 export default function Loader({ onDone }) {
   useEffect(() => {
-    const t = setTimeout(onDone, 1500)
+    const t = setTimeout(onDone, 900)
     return () => clearTimeout(t)
   }, [onDone])
 
@@ -13,7 +13,7 @@ export default function Loader({ onDone }) {
     <motion.div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-zinc-950 text-white"
       exit={{ y: '-100%' }}
-      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+      transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
     >
       <div className="flex flex-col items-center gap-6">
         <div className="flex overflow-hidden font-serif text-7xl italic">
